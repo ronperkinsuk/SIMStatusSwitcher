@@ -1,5 +1,0 @@
-# eMbedded Visual C++ Dependency File, included by WiVSSSSetup.vcn
-
-.\Source\Setup\WiVSSSSetup.c : \
-	{$(INCLUDE)}"ce_setup.h"\
-	
