@@ -10,6 +10,8 @@ The main purpose of this app was to combine your home and business SIMs into a s
 
 The switching of the SIMs was all done without you having to turn off your phone or enter your PIN code and with the ability to turn off just your GSM Radio without having to turn off your Bluetooth or Wireless connectivity was back then unheard off. 
 
+![SIMStatusSwitcher_Screenshot](https://ronperkins.com/SIMStatusSwitcher.gif)
+
 ## Credits
 
 * [Ron Perkins](https://github.com/ronperkinsuk)
