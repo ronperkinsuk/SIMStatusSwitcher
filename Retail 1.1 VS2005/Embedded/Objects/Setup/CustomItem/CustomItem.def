@@ -1,0 +1,4 @@
+LIBRARY	CustomItem
+
+EXPORTS
+InitializeCustomItem		@240	NONAME
