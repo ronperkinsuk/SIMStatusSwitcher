@@ -15,8 +15,8 @@ The switching of the SIMs was all done without you having to turn off your phone
 ## Credits
 
 * [Ron Perkins](https://github.com/ronperkinsuk)
-* David Southan
+* Dave Southan
 
 ## License
 
-The GNU Public License (GPL). Please see [License File](LICENSE) for more information.
+The GNU Public License (GPL). Please see [License File](LICENSE.md) for more information.
