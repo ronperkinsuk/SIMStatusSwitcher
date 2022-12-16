@@ -1,0 +1,38 @@
+
+===================================================================
+WiViT SIM Status Switcher Version 1.0, Build 0705 - 16th July, 2005
+===================================================================
+
+Issues we are aware of and are investigating:
+---------------------------------------------
+
+Bluetooth icon sometimes disappears after a soft reset. If this happens,
+removing SIM Status Switcher from the Today screen, resetting the device,
+then re-adding SIM Status Switcher will restore the icon.
+
+If Radio off for a long time, sometimes it is not possible to turn it
+back on without a soft-reset.
+
+Sometimes the phone dialer window appears with 'SIM status unknown' after
+switching SIMs. This might happen when you have configured SIM Status Switcher
+to automatically provide a PIN number. The PIN number has been entered
+successfully and tapping Cancel from the phone dialer will return you the
+the Today screen where SSS will function normally.
+
+Sometimes after a soft-reset, the phone dialer will prompt for you to enter
+a PIN even when you have configured SIM Status Switcher to automatically
+provide it. However, the PIN number has been entered successfully and tapping
+Cancel from the phone PIN prompt will return you the the Today screen where
+SSS will function normally.
+
+On Windows Mobile 2003 Second edition devices, corruption of the 'Owner' Today
+item can occur. This only happens if you return from Today->Items to Settings
+and then immediately back to the Today Screen. If you wait a few seconds after
+tapping OK on the Today->Items before tapping the X on the Settings dialog, then
+this can be avoided. If corruption does occur, it usually clears within a second
+or two. It will only present a problem to users who do a lot of Today Screen
+configuration changes within a relatively short time. We have tested out this
+problem with other non-Microsoft add-ins and to some degree or other the same
+thing occurs. We therefore suspect it is more to do with the 'Owner' plug-in
+than it is with us.
+

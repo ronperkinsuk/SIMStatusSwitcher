@@ -1,0 +1,49 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Today\Items\SIM Status Switcher]
+"DLL"="%InstallDir%\\WiVSSS.dll"
+"Flags"=dword:ffffffff
+"Options"=dword:00000001
+"Enabled"=dword:00000000
+"Type"=dword:00000004
+"Selectability"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WiViT\SIM Status Switcher\Options]
+"TodayIconTAHAction"=dword:00000003
+"TodayIconTapAction"=dword:00000002
+"TAHAction"=dword:00000001
+"TapAction"=dword:00000000
+"IconSet"=dword:00000000
+"Line2BoldFont"=dword:00000000
+"Line1BoldFont"=dword:00000001
+"SingleLineDisplay"=dword:00000000
+"ShowTSP"=dword:00000001
+"ShowNumber"=dword:00000001
+"DefaultLanguageID"="ENG"
+"DefaultLanguageName"="UK English"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WiViT\SIM Status Switcher\Version]
+"SupportURL"="mailto:support@wivit.com"
+"ShortName"="WiVSSS"
+"BuyURL"="http://www.wivit.com/products/SSS.shtml"
+"WebURL"="http://www.wivit.com"
+"Build"="0705"
+"Major"="1"
+"Minor"="00"
+
+[HKEY_CLASSES_ROOT\.lang]
+@="langfile"
+
+[HKEY_CLASSES_ROOT\langfile]
+@="LANG File"
+
+[HKEY_CLASSES_ROOT\langfile\DefaultIcon]
+@="\\%InstallDir%\\WiVSSS.dll,-300"
+
+[HKEY_CLASSES_ROOT\langfile\Shell\Open\Command]
+@="pword.exe -opendoc %1"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WiViT\SIM Status Switcher]
+"LicenseType"="Trial"
+"License1"=hex:0b,93,30,0f,2c,2d,ea,23,20,75,45,14,4e,1d,0d,74,44,59,34,50,36,\
+  c7,41,28,0b,93,30,7d,4c,14,eb,a6
