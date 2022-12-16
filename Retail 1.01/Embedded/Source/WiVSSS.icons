@@ -1,0 +1,27 @@
+;--------
+; File ID
+;--------
+WiViT Customisation File::ICONSFILE
+Version::1.0
+
+;------------
+; Icons Table
+;------------
+
+ICONSETSTART::Sample Custom Icon Set
+ON::/Windows/customsampleon.ico
+OFF::/Windows/customsampleoff.ico
+NEUTRAL::/Windows/customsampleneutral.ico
+ICONSETEND::Sample Custom Icon Set
+
+;ICONSETSTART::More Icons
+;ON::/Windows/icons/moreon.ico
+;OFF::/Windows/icons/moreoff.ico
+;NEUTRAL::/Windows/icons/moreneutral.ico
+;ICONSETEND::More Icons
+
+;ICONSETSTART::Yet More Icons
+;ON::/Windows/icons/1.ico
+;OFF::/Windows/icons/2.ico
+;NEUTRAL::/Windows/icons/3.ico
+;ICONSETEND::Yet More Icons
