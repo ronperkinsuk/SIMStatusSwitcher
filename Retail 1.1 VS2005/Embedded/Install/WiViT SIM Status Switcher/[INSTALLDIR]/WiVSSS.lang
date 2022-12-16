@@ -1,0 +1,540 @@
+;=====================================================;
+; Layout Description:                                 ;
+; =================================================== ;
+;                                                     ;
+; Blank lines and comment lines (first character = ;) ;
+; are ignored.                                        ;
+;                                                     ;
+; Special delimiters (::) and values to the left of   ;
+; them should NOT be edited.                          ;
+;                                                     ;
+; =================================================== ;
+;                                                     ;
+; Translation file identifier and Version.            ;
+; DO NOT edit this part.                              ;
+; ---------------------------                         ;
+; WiViT Customisation File::LANGFILE                  ;
+; Version::1.0                                        ;
+;                                                     ;
+; =================================================== ;
+;                                                     ;
+; Product ID and Language. All can be edited          ;
+;                                                     ;
+; <product> is The product ID (e.g WiVSSS)            ;
+;                                                     ;
+; <language id> is The ISO 639-2 three character      ;
+; language code (e.g. ENG)                            ;
+;                                                     ;
+; <language name> is The Language code's name in its  ;
+; native language's script (e.g. UK English)          ;
+;                                                     ;
+; -----------------------                             ;
+; PRODUCT::<product>                                  ;
+; LANGUAGEID::<language id>                           ;
+; LANGUAGENAME::<language name>                       ;
+;                                                     ;
+; =================================================== ;
+;                                                     ;
+; Translation Table.                                  ;
+; DO NOT edit the ID numbers.                         ;
+; -----------------                                   ;
+; TABLE::BEGIN                                        ;
+; ...                                                 ;
+; ID::<translated text>                               ;
+; ID::<translated text>                               ;
+; ...                                                 ;
+; TABLE::END                                          ;
+;                                                     ;
+;=====================================================;
+
+;--------
+; File ID
+;--------
+
+WiViT Customisation File::LANGFILE
+Version::1.0
+
+
+;======================================================
+; English
+;======================================================
+
+;------------------------
+; Product ID and Language
+;------------------------
+
+PRODUCT::WiVSSS
+LANGUAGEID::ENG
+LANGUAGENAME::UK English
+
+;------------------
+; Translation Table
+;------------------
+
+TABLE::BEGIN
+
+005::PIN mismatch, please re-enter
+006::Incorrect PIN, please re-enter
+007::Unavailable
+008::Could not run peghelp.exe
+009::SIM Status Switcher - Error
+010::OK
+011::Cancel
+012::Phone Number
+013::Options
+014::Options
+015::Refresh
+016::Refresh
+017::Switch SIM
+018::Switch SIM
+019::Turn Phone ON
+020::Turn Phone OFF
+021::Phone Settings
+022::Phone Settings
+023::Registration Information
+024::Device Information
+025::SIM Information
+026::Manufacturer
+027::Model
+028::Revision
+029::Serial Number
+030::Subscriber ID
+031::SIM 
+032::Ready
+033::Status
+034::Initializing...
+035::Refreshing...
+036::Registering...
+037::Waiting for signal..
+038::Waiting for PIN..
+039::Turning Phone ON..
+040::Turning Phone OFF..
+041::Switching SIMs..
+042::PIN Accepted
+043::PIN Error
+044::Phone is OFF
+045::SIM is blocked
+046::SIM is locked
+047::Invalid or missing SIM
+048::Previous PIN error
+049::Operator
+050::...
+051::N/A
+052::View or change the
+053::Serial Number
+054::- 
+055::Support
+056::Licence Type
+057::day remaining
+058::Single Tap
+059::Tap and Hold
+060::Today Icon Single Tap
+061::Today Icon Tap and Hold
+062::Show Phone Number
+063::Show Service Provider
+064::Single Line Display
+065::Line 1 Bold
+066::Line 2 Bold
+067::Icon Sets
+068::Custom..
+069::Allow Automatic PIN Entry
+070::Enter PIN
+071::Enter Current PIN
+072::Enter New PIN
+073::Confirm PIN
+074::After Soft Reset or Plugin Enable
+075::When Radio Turned On
+076::Create PIN
+077::Change PIN
+078::Refresh
+079::Show Popup Menu
+080::Options
+081::Switch SIM
+082::Turn Phone Off/On
+083::Phone Settings
+084::Standard Phone
+085::In/Out Button
+086::Mobile Phone
+087::PDA
+088::Custom...
+089::Register
+090::Information
+091::Not enough memory
+092::Today
+093::All Files
+094::Unknown
+095::Phonebook Storage
+096::Location
+097::Total Entries
+098::Entries Used
+099::Home
+100::Roaming
+101::Number Unavailable
+102::Traffic Signal
+103::Radio Tube
+104::Tap here to enter PIN
+105::Entering PIN..
+106::SIM phonebook
+107::Own numbers
+108::Recent calls list
+109::Fixed dialing
+110::Emergency numbers
+111::Unknown
+112::Changes have been made and will be discarded
+113::Are you sure you want to cancel?
+114::days remaining
+115::Expired
+116::The Phonebook is not ready yet - please try again in 30 seconds
+117::There is a problem with the file. It may be corrupted. Please re-install. If problem persists, please email
+118::Use the boxes below to carefully enter the Software License supplied to you by
+119::Once you have entered the License, tap OK to save it and return to the About screen
+120::The License takes effect after a soft-reset, or by using the Today->Items setting to disable and re-enable the
+121::Today Plug-in
+122::Pending Verification
+123::Your license has expired.
+124::Tap here to display About panel.
+125::Please register.
+126::Function is now limited.
+127::Entered license invalid.
+128::Make Default
+129::Load
+130::Default Language
+131::Available Languages
+132::ID
+133::Name
+134::Not Defined
+135::Not Found
+136::Current Language
+137::Current Language is the built-in language
+138::Display
+139::Appearance
+140::Actions
+141::Security
+142::Language
+143::About
+
+TABLE::END
+
+
+;======================================================
+; Français
+;======================================================
+
+;------------------------------
+; Identité de produit et langue
+;------------------------------
+
+PRODUCT::WiVSSS
+LANGUAGEID::FRA
+LANGUAGENAME::Français
+
+;--------------------
+; Table de traduction
+;--------------------
+
+TABLE::BEGIN
+
+005::Erreur Code PIN, Merci de ressaisir
+006::Code PIN incorrect, Merci de ressaisir
+007::Indisponible
+008::Exécution de peghelp.exe impossible
+009::Etat SIM Switcher - Erreur
+010::OK
+011::Annuler
+012::Numéro
+013::Options
+014::Options
+015::Actualiser
+016::Actualiser
+017::Changer de SIM
+018::Changer de SIM
+019::Allumer le Téléphone
+020::Eteindre le Téléphone
+021::Réglages du Téléphone
+022::Réglages du Téléphone
+023::Information d'enregistrement
+024::Information PDA
+025::Information SIM
+026::Constructeur
+027::Modèle
+028::Révision
+029::Num Série
+030::Abonné
+031::SIM
+032::Prêt
+033::Etat
+034::Initialisation...
+035::Actualisation...
+036::Enregistrement...
+037::Attente du signal..
+038::Attente code PIN..
+039::Mise en route du Téléphone..
+040::Extension du Téléphone..
+041::Changement de SIM..
+042::Code PIN Accepté
+043::Erreur de Code PIN
+044::Le téléphone est arrêté
+045::La SIM est bloquée
+046::La SIM est bloquée
+047::carte SIM invalide ou absente
+048::Précédente erreur PIN
+049::Opérateur
+050::...
+051::N/A
+052::Voir ou changer le
+053::Num Série
+054::- 
+055::Support
+056::Type de Licence
+057::Jour reste
+058::Appui Simple
+059::Appui et Maintien
+060::Simple appui sur Icône Aujourd'hui
+061::Appui et Maintien sur Icône Aujourd'hui
+062::Montrer Num de Téléphone
+063::Montrer Services Opérateurs
+064::Affichage sur une ligne
+065::Ligne 1 en gras
+066::Ligne 2 en gras
+067::Choix d'icônes
+068::Personnalisation..
+069::Autoriser l'entré Automatique PIN
+070::Entrer code PIN
+071::Code PIN actif
+072::Nouveau code PIN
+073::Confirmer code PIN
+074::Après Reset ou Activation Plugin
+075::Suite mise en route GSM
+076::Création PIN
+077::Modifier PIN
+078::Actualise
+079::Montre Menu Popup
+080::Options
+081::Change de SIM
+082::Allume/Eteint le Téléphone
+083::Réglages Téléphone
+084::Téléphone Standard
+085::Boutons Combiné
+086::Téléphone Portable
+087::PDA
+088::Personnalisée...
+089::Licence
+090::Information
+091::Manque de mémoire
+092::Aujourd’hui
+093::Tous Fichiers
+094::Inconnue
+095::Place du Calepin
+096::Emplacement
+097::Total Entrés
+098::Entré active
+099::National
+100::Etendu
+101::Numéro indisponible
+102::Feux Tricolores
+103::Lampes colorées
+104::Rentrez ici le code PIN
+105::Introduction Code PIN..
+106::Calepin de la SIM
+107::Mon numéro
+108::Liste des appels récents
+109::Appel Fixé
+110::Numéros d'urgences
+111::Inconnu
+112::Les Changements effectués vont êtres annulés
+113::Sûr de vouloir annuler?
+114::Jours reste
+115::Expiré
+116::Le téléphone n'est pas prêt - Réessayez dans 30 secondes
+117::Il y a un problème avec le fichier. Il peut être corrompu. Merci de réinstaller. Si le problème persiste, informer par email
+118::Utiliser les cases pour rentrer le code qui vous a été fourni par
+119::Une fois le code rentré, valider par Ok, puis retourner sur la page à propos
+120::La Licence prend effet après un Soft reset, ou en utilisant le paramétrage de la page Aujourd'hui par désactivation puis activation du PlugIn
+121::Plugin Aujourd'hui
+122::Vérification en attente
+123::Votre licence est expirée.
+124::Tapez ici pour le réglage de la page Aujourd'hui.
+125::Merci de vous enregistrer.
+126::Fonction sans limite.
+127::Licence entrée invalide.
+128::Définir comme Défaut
+129::Charge
+130::Langue par Défaut
+131::Langues Disponibles
+132::ID
+133::Nom
+134::Non Défini
+135::Non Trouvé
+136::Langue Courante
+137::La langue courante est la langue intégrée
+138::Affichage
+139::Aspect
+140::Actions
+141::Sécurité
+142::Langue
+143::A Propos
+
+TABLE::END
+
+
+;======================================================
+; Deutsch
+;======================================================
+
+;-----------------------------------
+; Produkt Identifikation und Sprache
+;-----------------------------------
+
+PRODUCT::WiVSSS
+LANGUAGEID::DEU
+LANGUAGENAME::Deutsch
+
+;--------------------
+; Übersetzungstabelle
+;--------------------
+
+TABLE::BEGIN
+
+005::PIN Fehleingabe bitte erneut eingeben
+006::Falsche PIN, bitte erneut eingeben
+007::Nicht verfügbar
+008::peghelp.exe konnte nicht ausgeführt werden
+009::SIM Status Switcher - Fehler
+010::OK
+011::Abbruch
+012::Telefonnummer
+013::Optionen
+014::Optionen
+015::Aktualisieren
+016::Aktualisieren
+017::SIM umschalten
+018::SIM umschalten
+019::Telefon einschalten
+020::Telefon ausschalten
+021::Telefon Einstellungen
+022::Telefon Einstellungen
+023::Registrierungsinformationen
+024::Geräte-Informationen
+025::SIM-Informationen
+026::Hersteller
+027::Modell
+028::Revision
+029::Seriennummer
+030::Kunden ID
+031::SIM
+032::Bereit
+033::Status
+034::Initialisiere...
+035::Aktualisiere...
+036::Registriere...
+037::Warte auf Signal..
+038::Warte auf PIN..
+039::Schalte Telefon EIN..
+040::Schalte Telefon AUS..
+041::Schalte SIMs um..
+042::PIN akzeptiert
+043::PIN Fehler
+044::Telefon ist AUS
+045::SIM ist blockiert
+046::SIM ist gesperrt
+047::Ungültige oder fehlende SIM
+048::Vorhergehender PIN Fehler
+049::Netzbetreiber
+050::...
+051::N/A
+052::Ansehen oder ändern der
+053::Seriennummer
+054::- 
+055::Support
+056::Lizenztyp
+057::Tag verbleibt
+058::Einmal antippen
+059::Antippen und halten
+060::Heute Icon einmal antippen
+061::Heute Icon antippen und halten
+062::Telefonnummer anzeigen
+063::Netzbetreiber anzeigen
+064::Einzeilige Anzeige
+065::Zeile 1 Fett
+066::Zeile 2 Fett
+067::Icon Sets
+068::Eigene..
+069::Autom. PIN Eingabe erlauben
+070::PIN eingeben
+071::Aktuelle PIN eingeben
+072::Neue PIN eingeben
+073::PIN bestätigen
+074::Nach Soft-Reset o. Plugin-Aktiv.
+075::Wenn Tel. eingeschaltet wird
+076::PIN Eingeben
+077::PIN ändern
+078::Aktualisieren
+079::Popup Menü anzeigen
+080::Optionen
+081::SIM umschalten
+082::Telefon Aus/Ein
+083::Telefoneinstellungen
+084::Standard Telefon
+085::Hinein/Heraus Knopf
+086::Mobiltelefon
+087::PDA
+088::Eigene...
+089::Registrierung
+090::Information
+091::Nicht genügend Speicher
+092::Heute
+093::Alle Dateien
+094::Unbekannt
+095::Telefonbuchspeicher
+096::Speicherort
+097::Einträge ges.
+098::Gesp. Einträge
+099::Home
+100::Roaming
+101::Nummer nicht verfügbar
+102::Verkehrsampel
+103::Rundfunkröhre
+104::Zur PIN Eingabe hier antippen
+105::Gebe PIN ein..
+106::SIM Telefonbuch
+107::Eigene Nummern
+108::Anrufverlauf
+109::Kurzwahl
+110::Notrufnummern
+111::Unbekannt
+112::Durchgeführte Änderungen werden rückgängig gemacht
+113::Sind Sie sicher, dass Sie abbrechen wollen?
+114::Tage verbleiben
+115::Abgelaufen
+116::Das Telefonbuch ist noch nicht bereit. Bitte versuchen Sie es in 30 Sekunden erneut.
+117::Es gibt ein Problem mit der Datei. Die Datei ist eventuell beschädigt. Bitte erneut installieren. Sollte das Problem weiterhin bestehen, bitte Email schicken an
+118::Bitte geben Sie in die Eingabefelder sorgfältig den Lizenzcode ein von
+119::Nach Eingabe des Lizenzcodes bitte durch Antippen von OK bestätigen und zum Über-Bildschirm zurückkehren
+120::Die Lizenz wird wirksam n. einem Soft-Reset o. durch De-/Reaktivieren in d. Heute-Einstell. d.
+121::Heute Plug-in
+122::Laufende Prüfung
+123::Ihre Lizenz ist abgelaufen.
+124::Zum Über-Bildschirm hier antippen.
+125::Bitte Lizenz erwerben.
+126::Funktion ist nun eingeschränkt.
+127::Eingegebener Lizenzcode ist ungültig.
+128::Voreinstellung
+129::Laden
+130::Voreingestellte Sprache
+131::Verfügbare Sprachen
+132::ID
+133::Name
+134::Nicht Definiert
+135::Nicht Gefunden
+136::Aktuelle Sprache
+137::Aktuelle Sprache ist die integrierte Sprache
+138::Anzeige
+139::Darstellung
+140::Aktionen
+141::Sicherheit
+142::Sprache
+143::Über
+
+TABLE::END
+
+
