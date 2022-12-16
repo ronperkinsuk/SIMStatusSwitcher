@@ -1,0 +1,181 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Microsoft Blackjack Sample AppInstall INF
+;   This sample INF file is used as the input file for "Cabwiz.exe".
+;   Along with sample binary files, it will create multiple (2) CAB files,
+;   for the following types of devices:
+;       - Pocket PC 2003  ARM CPU
+;	- Pocket PC 2003  X86 CPU (for use in the Pocket PC 2003 emulator) 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required "Version" section. 
+;   Contains INF version information
+[Version]
+Signature   = "$Windows NT$"	; Should be $Windows NT$ or $Windows 98$ or other OS name
+Provider    = "Microsoft"       ; full app name will be "<Provider> <AppName>"
+CESignature = "$Windows CE$"	; Must be $Windows CE$
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required "CEStrings" section
+;   Specific strings used by Windows CE AppInstall
+[CEStrings]
+AppName     = "Blackjack Sample" ; full app name will be "<Provider> <AppName>"
+InstallDir  = %CE8%\%AppName%    ; "\Program Files\Games\Blackjack Sample" (default install directory, which can be changed by end user.)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Optional "Strings" section
+;   Contains string substitutions replacing the key string (enclosed with percent symbols) with the value string
+;   For this example, it will store language-dependent strings
+[Strings]
+PlayerName	= "John Smith"
+HighScorer1	= "Jane Doe",
+HighScorer2	= "John Smith"
+LinkFilename	= "Blackjack"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required "CEDevice" section
+;   Specifies the various types of CAB files that will be generated
+[CEDevice]
+UnsupportedPlatforms    = "HPC","Jupiter","Palm PC2"
+VersionMin 		= 3.0
+VersionMax		= 5.0
+
+[CEDevice.PPC2003_ARM]
+ProcessorType           = 2577      ; ARM CPU
+
+[CEDevice.PPC2003_x86]
+ProcessorType           = 686      ; x86 CPU for emulator
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required "SourceDisksNames" section
+;   Specifies the source directories of the binary files
+;   Format:     
+;	<source ID> = ,<label>,,<source directory>
+;       <source ID> will be used to specify the source files belonging to this directory
+;       <label> is unused
+;       <source directory> is the relative or absolute directory of the source files
+[SourceDisksNames]              	; CPU-independent files
+1 = ,"Common Files",,Common     	; files are in the relative path "common"
+
+[SourceDisksNames.PPC2003_ARM]   	; ARM-specific files for Pocket PC 2003
+2 = ,"PPC ARM Files",,ARM_bins 	; files are in the relative path "ARM_bins"
+
+[SourceDisksNames.PPC2003_x86]
+2 = ,"PPC x86 Files",,x86emu_bins 	; files are in the relative path "x86emu_bins"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required "SourceDisksFiles" section
+;   Specifies the source filenames that will be packaged in the CAB files
+;   Format:     
+;	<filename> = <source ID>
+;       <filename> is the source filename (enclose in doublequotes for long filenames)
+;       <source ID> is the ID used in [SourceDisksNames] to specify the source directory
+[SourceDisksFiles]
+    ; CPU-independent files
+"Blackjack Help.htp"    = 1     ; the main help file
+"Lose Game.wav"         = 1     ; wav file possibly shared by other apps
+"Win Game.wav"          = 1     ; wav file possibly shared by other apps
+Sample.BJL              = 1     ; sample file associated with Blackjack
+    ; CPU-specific files
+Blkjack.exe             = 2     ; main executable
+"SelfRegister.dll"      = 2     ; support file for main executable, which will be self-registered
+"Blackjack Setup.dll"   = 2     ; AppInstall's "Setup.DLL"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required "DefaultInstall" section
+;   Specifies the INF sections for file copying, registry settings and creating shortcuts
+;   INF sections that are not listed here will not be used
+[DefaultInstall]
+CopyFiles   = Files.Windows,Files.InstallDir	; Required INF sections that lists the files to be copied
+AddReg      = Reg.Version1			; Required INF sections that lists the registry entries to be created
+CEShortcuts = Links				; Optional INF sections that lists the shortcuts to be created
+CESetupDLL  = "Blackjack Setup.dll"		; Optional "Setup.DLL" to use during installation runtime
+    						; - this file must be specified in the [SourceDisksFiles] section
+    						; - AppInstall will call the DLL's exported functions (when appropriate):
+    						;       Install_Init, Install_Exit, Uninstall_Init, Uninstall_Exit
+CESelfRegister = "SelfRegister.dll"		; Optional list of self-registering files that will be registered/unregistered during runtime
+    						; - these files must be specified in the [SourceDisksFiles] section
+    						; - AppInstall will call the DLL's exported functions (when appropriate):
+    						;       DllRegisterServer, DllUnregisterServer
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required "DestinationDirs" section
+;   Specifies the directories to use for the file copy lists
+;   Format:     
+;	<section name> = 0,<dest directory>
+;       <section name> is the section name used in "[DefaultInstall] CopyFiles"
+;       <dest directory> is the destination directory, using an absolute device path, the directory macros, or the install directory %InstallDir%
+[DestinationDirs]
+Files.Windows       = 0,%CE2%           ; "\Windows" directory
+Files.InstallDir    = 0,%InstallDir%	; "\Program Files\Games\Blkjack" directory (%CE8%\%AppName%).
+DefaultDestDir      = 0,%InstallDir%    ; "\Program Files\Games\Blkjack" directory (%CE8%\%AppName%).
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required sections specified in "[DefaultInstall] CopyFiles" key
+;   Specifies the files to copy
+;   Format:     
+;	<dest filename>,<source filename>,,<copy flags>
+;       <dest filename> is the destination filename (or the source filename if <source filename> is empty)
+;       <source filename> is the source filename
+;       <copy flags> is the copy flags to use
+[Files.Windows]
+    ; Rename this file, and warn the user if this file is being skipped copying
+"BJ Main Help.htp","Blackjack Help.htp",,0x00000001
+    ; Increase the reference count for the following "shared" wav files
+"Lose Game.wav",,,0x80000000
+"Win Game.wav",,,0x80000000
+
+[Files.InstallDir]
+Sample.BJL
+"Blackjack.exe",Blkjack.exe
+    ; Rename this file, ignore the date checking, and warn the user if this file is being skipped copying
+"Blackjack Support.dll","SelfRegister.dll",,0x40000001
+    ; Note that "Blackjack Setup.dll" has not been copied, since it is the AppInstall's "Setup.DLL",
+    ; which is a "temporary" file used only by AppInstall
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Required sections specified in "[DefaultInstall] AddReg" key
+;   Specifies the registry entries to create
+;   Format:     
+;	<reg root>,<reg key>,<reg val>,<reg flags>,<reg data>[,<reg data>]
+;       <reg root> is HKCR, HKLM or HKCU
+;       <reg key> is the registry key name
+;       <reg val> is the registry value name, which is set to "default" if empty
+;       <reg flags> is the registry type/flags to use
+;       <reg data> is the numeric/string registry data, which depends on the <reg flags> used
+[Reg.Version1]
+    ; Set a sample application version number, using the TYPE_DWORD registry type
+HKLM,Software\Microsoft\%AppName%,MajorVersion,0x00010001,1
+HKLM,Software\Microsoft\%AppName%,MinorVersion,0x00010001,0
+    ; Set a sample default player name, using the TYPE_SZ registry type.  Also, do not replace if already exists.
+HKCU,Software\Microsoft\%AppName%,"DefaultPlayer",0x00000002,%PlayerName%
+    ; Set a sample high score list (4 string multi-string), using the TYPE_MULTI_SZ registry type.  Also, do not replace if already exists.
+HKCU,Software\Microsoft\%AppName%,"HighScores",0x00010002,%HighScorer1%,"200",%HighScorer2%,"100"
+    ; Set a sample binary stream (8-bytes), using the BINARY registry type
+HKLM,Software\Microsoft\%AppName%,"ProductID",0x00000001,2,F,B,3,0,A,6,D
+    ; Associate .BJL files (a Blackjack high score list file?) with the "Blackjack.exe" executable
+HKCR,.BJL,,0x00000000,BlkjackFile
+HKCR,BlkjackFile\Shell\Open\Command,,0x00000000,"""%InstallDir%\Blackjack.exe""" %%1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Sections specified in "[DefaultInstall] CEShortcuts" key
+;   Specifies the shortcuts to create
+;   Format:     
+;	<shortcut filename>,<shortcut type>,<target file/path>[,<standard dest path>]
+;       <shortcut filename> is the filename of the shortcut
+;       <shortcut type> specifies if the shortcut is to a file or a folder
+;       <target file/path> is the target filename or pathname, which depends on the <shortcut type> flag used
+;       <standard dest path> is an optional destination directory macro (or %InstallDir%) to use
+[Links]
+%LinkFilename%,0,"Blackjack.exe",%CE14%         ; shortcut to a file, created in the standard destination path %CE14%
+
