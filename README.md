@@ -19,7 +19,7 @@ The switching of the SIMs was all done without you having to turn off your phone
 
 ## License
 
-The GNU Public License (GPL). Please see [License File](LICENSE.md) for more information.
+The GNU Public License (GPL). Please see [License File](LICENSE) for more information.
 
 Copyright (c) 2005 Ron Perkins <hello@ronperkins.com>
 
