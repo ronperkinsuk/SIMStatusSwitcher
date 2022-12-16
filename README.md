@@ -13,6 +13,7 @@ The switching of the SIMs was all done without you having to turn off your phone
 ## Credits
 
 * [Ron Perkins](https://github.com/ronperkinsuk)
+* David Southan
 
 ## License
 
