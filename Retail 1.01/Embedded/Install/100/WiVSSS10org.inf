@@ -1,0 +1,91 @@
+
+[Version]
+Signature="$Chicago$"
+CESignature="$Windows CE$"
+Provider="WiViT"
+
+[CEStrings]
+AppName="SIM Status Switcher"
+InstallDir="%CE1%\%AppName%"
+
+[CEDevice]
+ProcessorType=2577
+UnsupportedPlatforms="HPC","JUPITER"
+VersionMin=3.0
+VersionMax=9.0
+BuildMin=0
+BuildMax=0xE0000000
+
+[SourceDisksNames]
+1=,Source1,,"[WINDOWS]\Help"
+2=,Source2,,"[INSTALLDIR]"
+3=,Source3,,"[WINDOWS]"
+
+[SourceDisksFiles]
+"SIM Status Switcher.lnk"=1
+"WiVSSS.lang"=2
+"WiVSSS_ENG.lnk"=2
+"WiVSSS_DEU.lnk"=2
+"WiVSSS_FRA.lnk"=2
+"WiVSSS.dll"=2
+"WiVSSSHelp_ENG.htm"=3
+"WiVSSSHelp_FRA.htm"=3
+"WiVSSSHelp_DEU.htm"=3
+
+[CopyFiles1]
+"SIM Status Switcher.lnk",,,0x00000000
+
+[CopyFiles2]
+"WiVSSS.lang",,,0x00000000
+"WiVSSS_ENG.lnk",,,0x00000000
+"WiVSSS_DEU.lnk",,,0x00000000
+"WiVSSS_FRA.lnk",,,0x00000000
+"WiVSSS.dll",,,0x00000000
+
+[CopyFiles3]
+"WiVSSSHelp_ENG.htm",,,0x00000000
+"WiVSSSHelp_FRA.htm",,,0x00000000
+"WiVSSSHelp_DEU.htm",,,0x00000000
+
+[DestinationDirs]
+CopyFiles1=0,"%CE2%\Help"
+CopyFiles2=0,"%InstallDir%"
+CopyFiles3=0,"%CE2%"
+
+[AddRegistry]
+HKLM,"SOFTWARE\Microsoft\Today\Items\SIM Status Switcher","DLL",0x00000000,"%%InstallDir%%\WiVSSS.dll"
+HKLM,"SOFTWARE\Microsoft\Today\Items\SIM Status Switcher","Flags",0x00010003,-1
+HKLM,"SOFTWARE\Microsoft\Today\Items\SIM Status Switcher","Options",0x00010001,1
+HKLM,"SOFTWARE\Microsoft\Today\Items\SIM Status Switcher","Enabled",0x00010003,0
+HKLM,"SOFTWARE\Microsoft\Today\Items\SIM Status Switcher","Type",0x00010001,4
+HKLM,"SOFTWARE\Microsoft\Today\Items\SIM Status Switcher","Selectability",0x00010001,1
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","TodayIconTAHAction",0x00010003,3
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","TodayIconTapAction",0x00010003,2
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","TAHAction",0x00010003,1
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","TapAction",0x00010003,0
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","IconSet",0x00010003,0
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","Line2BoldFont",0x00010003,0
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","Line1BoldFont",0x00010003,1
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","SingleLineDisplay",0x00010003,0
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","ShowTSP",0x00010003,1
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","ShowNumber",0x00010003,1
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","DefaultLanguageID",0x00000002,"ENG"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Options","DefaultLanguageName",0x00000002,"UK English"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Version","SupportURL",0x00000000,"mailto:support@wivit.com"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Version","ShortName",0x00000000,"WiVSSS"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Version","BuyURL",0x00000000,"http://www.wivit.com/products/SSS.shtml"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Version","WebURL",0x00000000,"http://www.wivit.com"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Version","Build",0x00000000,"0705"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Version","Major",0x00000000,"1"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher\Version","Minor",0x00000000,"00"
+HKCR,".lang","",0x00000000,"langfile"
+HKCR,"langfile","",0x00000000,"LANG File"
+HKCR,"langfile\DefaultIcon","",0x00000000,"\%%InstallDir%%\WiVSSS.dll,-300"
+HKCR,"langfile\Shell\Open\Command","",0x00000000,"pword.exe -opendoc %%1"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher","LicenseType",0x00000002,"Trial"
+HKLM,"SOFTWARE\WiViT\SIM Status Switcher","License1",0x00000003,0b,93,30,0f,2c,2d,ea,23,20,75,45,14,4e,1d,0d,74,44,59,34,50,36,c7,41,28,0b,93,30,7d,4c,14,eb,a6
+
+[DefaultInstall]
+CopyFiles=CopyFiles1,CopyFiles2,CopyFiles3
+AddReg=AddRegistry
+

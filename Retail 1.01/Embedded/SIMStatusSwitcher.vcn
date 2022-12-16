@@ -1,0 +1,1192 @@
+# Microsoft eMbedded Visual Tools Generated NMAKE File, Based on SIMStatusSwitcher.vcp
+!IF "$(CFG)" == ""
+CFG=SIMStatusSwitcher - Win32 (WCE x86) Debug
+!MESSAGE No configuration specified. Defaulting to SIMStatusSwitcher - Win32 (WCE x86) Debug.
+!ENDIF 
+
+!IF "$(CESubsystem)" == ""
+CESubsystem=windowsce,2.0
+!MESSAGE Variable CESubsystem not specified. Defaulting to windowsce,2.11
+!ENDIF 
+
+!IF "$(CEVersion)" == ""
+CEVersion=200
+!MESSAGE Variable CEVersion not specified. Defaulting to 211
+!ENDIF 
+
+!IF $(CEVersion) < 201
+CECrt=L
+CECrtDebug=Ld
+CECrtMT=T
+CECrtMTDebug=Td
+CENoDefaultLib=corelibc.lib
+CEx86Corelibc= 
+!ELSE 
+CECrt=C
+CECrtDebug=C
+CECrtMT=C
+CECrtMTDebug=C
+CENoDefaultLib=libc.lib /nodefaultlib:libcd.lib /nodefaultlib:libcmt.lib /nodefaultlib:libcmtd.lib /nodefaultlib:msvcrt.lib /nodefaultlib:msvcrtd.lib
+CEx86Corelibc=corelibc.lib
+!ENDIF 
+
+!IF "$(CE_PLATFORM)"==""
+CePlatform=WIN32_PLATFORM_UNKNOWN
+!ELSE 
+CePlatform=$(CE_PLATFORM)
+!ENDIF 
+
+!IF "$(CFG)" != "SIMStatusSwitcher - Win32 (WCE x86) Release" && "$(CFG)" != "SIMStatusSwitcher - Win32 (WCE x86) Debug" && "$(CFG)" != "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug" && "$(CFG)" != "SIMStatusSwitcher - Win32 (WCE ARMV4) Release" && "$(CFG)" != "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+!MESSAGE Invalid configuration "$(CFG)" specified.
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "SIMStatusSwitcher.vcn" CFG="SIMStatusSwitcher - Win32 (WCE x86) Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "SIMStatusSwitcher - Win32 (WCE x86) Release" (based on "Win32 (WCE x86) Dynamic-Link Library")
+!MESSAGE "SIMStatusSwitcher - Win32 (WCE x86) Debug" (based on "Win32 (WCE x86) Dynamic-Link Library")
+!MESSAGE "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug" (based on "Win32 (WCE ARMV4) Dynamic-Link Library")
+!MESSAGE "SIMStatusSwitcher - Win32 (WCE ARMV4) Release" (based on "Win32 (WCE ARMV4) Dynamic-Link Library")
+!MESSAGE "SIMStatusSwitcher - Win32 (WCE ARMV4) Special" (based on "Win32 (WCE ARMV4) Dynamic-Link Library")
+!MESSAGE 
+!ERROR An invalid configuration is specified.
+!ENDIF 
+
+!IF "$(OS)" == "Windows_NT"
+NULL=
+!ELSE 
+NULL=nul
+!ENDIF 
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+OUTDIR=.\Objects\X86\Release\Output
+INTDIR=.\Objects\X86\Release\Intermediate
+# Begin Custom Macros
+OutDir=.\Objects\X86\Release\Output
+# End Custom Macros
+
+ALL : "$(OUTDIR)\SIMStatusSwitcher.dll"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\Comments.obj"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.obj"
+	-@erase "$(INTDIR)\SSSOptions.obj"
+	-@erase "$(INTDIR)\SSSPhone.obj"
+	-@erase "$(INTDIR)\SSSToday.obj"
+	-@erase "$(INTDIR)\WiVEncode.obj"
+	-@erase "$(INTDIR)\WiVLang.obj"
+	-@erase "$(INTDIR)\WiVLicense.obj"
+	-@erase "$(INTDIR)\WiVReg.obj"
+	-@erase "$(INTDIR)\WiVTrace.obj"
+	-@erase "$(INTDIR)\WiVUtils.obj"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.dll"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.exp"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+RSC=rc.exe
+CPP=cl.exe
+CPP_PROJ=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\SIMStatusSwitcher.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=$(CEx86Corelibc) commctrl.lib coredll.lib aygshell.lib /nologo /base:"0x00100000" /stack:0x10000,0x1000 /entry:"_DllMainCRTStartup" /dll /incremental:no /pdb:"$(OUTDIR)\SIMStatusSwitcher.pdb" /nodefaultlib:"OLDNAMES.lib" /nodefaultlib:$(CENoDefaultLib) /def:".\Source\SIMStatusSwitcher.def" /out:"$(OUTDIR)\SIMStatusSwitcher.dll" /implib:"$(OUTDIR)\SIMStatusSwitcher.lib" /subsystem:$(CESubsystem) /MACHINE:IX86 
+DEF_FILE= \
+	".\Source\SIMStatusSwitcher.def"
+LINK32_OBJS= \
+	"$(INTDIR)\Comments.obj" \
+	"$(INTDIR)\SIMStatusSwitcher.obj" \
+	"$(INTDIR)\SSSOptions.obj" \
+	"$(INTDIR)\SSSPhone.obj" \
+	"$(INTDIR)\SSSToday.obj" \
+	"$(INTDIR)\WiVEncode.obj" \
+	"$(INTDIR)\WiVLang.obj" \
+	"$(INTDIR)\WiVLicense.obj" \
+	"$(INTDIR)\WiVReg.obj" \
+	"$(INTDIR)\WiVTrace.obj" \
+	"$(INTDIR)\WiVUtils.obj"
+
+"$(OUTDIR)\SIMStatusSwitcher.dll" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+OUTDIR=.\Objects\X86\Debug\Output
+INTDIR=.\Objects\X86\Debug\Intermediate
+# Begin Custom Macros
+OutDir=.\Objects\X86\Debug\Output
+# End Custom Macros
+
+ALL : "$(OUTDIR)\SIMStatusSwitcher.dll"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\Comments.obj"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.obj"
+	-@erase "$(INTDIR)\SSSOptions.obj"
+	-@erase "$(INTDIR)\SSSPhone.obj"
+	-@erase "$(INTDIR)\SSSToday.obj"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\WiVEncode.obj"
+	-@erase "$(INTDIR)\WiVLang.obj"
+	-@erase "$(INTDIR)\WiVLicense.obj"
+	-@erase "$(INTDIR)\WiVReg.obj"
+	-@erase "$(INTDIR)\WiVTrace.obj"
+	-@erase "$(INTDIR)\WiVUtils.obj"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.dll"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.exp"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.ilk"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+RSC=rc.exe
+CPP=cl.exe
+CPP_PROJ=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\SIMStatusSwitcher.bsc" 
+BSC32_SBRS= \
+	
+LINK32=link.exe
+LINK32_FLAGS=$(CEx86Corelibc) commctrl.lib coredll.lib aygshell.lib /nologo /base:"0x00100000" /stack:0x10000,0x1000 /entry:"_DllMainCRTStartup" /dll /incremental:yes /pdb:"$(OUTDIR)\SIMStatusSwitcher.pdb" /debug /nodefaultlib:"OLDNAMES.lib" /nodefaultlib:$(CENoDefaultLib) /def:".\Source\SIMStatusSwitcher.def" /out:"$(OUTDIR)\SIMStatusSwitcher.dll" /implib:"$(OUTDIR)\SIMStatusSwitcher.lib" /subsystem:$(CESubsystem) /MACHINE:IX86 
+DEF_FILE= \
+	".\Source\SIMStatusSwitcher.def"
+LINK32_OBJS= \
+	"$(INTDIR)\Comments.obj" \
+	"$(INTDIR)\SIMStatusSwitcher.obj" \
+	"$(INTDIR)\SSSOptions.obj" \
+	"$(INTDIR)\SSSPhone.obj" \
+	"$(INTDIR)\SSSToday.obj" \
+	"$(INTDIR)\WiVEncode.obj" \
+	"$(INTDIR)\WiVLang.obj" \
+	"$(INTDIR)\WiVLicense.obj" \
+	"$(INTDIR)\WiVReg.obj" \
+	"$(INTDIR)\WiVTrace.obj" \
+	"$(INTDIR)\WiVUtils.obj"
+
+"$(OUTDIR)\SIMStatusSwitcher.dll" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+OUTDIR=.\Objects\ARMV4\Debug\Output
+INTDIR=.\Objects\ARMV4\Debug\Intermediate
+# Begin Custom Macros
+OutDir=.\Objects\ARMV4\Debug\Output
+# End Custom Macros
+
+ALL : "$(OUTDIR)\WiVSSS.dll" "$(OUTDIR)\SIMStatusSwitcher.bsc"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\SIMStatusSwitcher.obj"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.res"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.sbr"
+	-@erase "$(INTDIR)\SSSOptions.obj"
+	-@erase "$(INTDIR)\SSSOptions.sbr"
+	-@erase "$(INTDIR)\SSSPhone.obj"
+	-@erase "$(INTDIR)\SSSPhone.sbr"
+	-@erase "$(INTDIR)\SSSToday.obj"
+	-@erase "$(INTDIR)\SSSToday.sbr"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\WiVLang.obj"
+	-@erase "$(INTDIR)\WiVLang.sbr"
+	-@erase "$(INTDIR)\WiVLicense.obj"
+	-@erase "$(INTDIR)\WiVLicense.sbr"
+	-@erase "$(INTDIR)\WiVReg.obj"
+	-@erase "$(INTDIR)\WiVReg.sbr"
+	-@erase "$(INTDIR)\WiVTrace.obj"
+	-@erase "$(INTDIR)\WiVTrace.sbr"
+	-@erase "$(INTDIR)\WiVUtils.obj"
+	-@erase "$(INTDIR)\WiVUtils.sbr"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.bsc"
+	-@erase "$(OUTDIR)\WiVSSS.dll"
+	-@erase "$(OUTDIR)\WiVSSS.exp"
+	-@erase "$(OUTDIR)\WiVSSS.ilk"
+	-@erase "$(OUTDIR)\WiVSSS.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+RSC=rc.exe
+RSC_PROJ=/l 0x809 /fo"$(INTDIR)\SIMStatusSwitcher.res" /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "DEBUG" /d "WIV_DEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" -n /r 
+CPP=clarm.exe
+CPP_PROJ=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /D "WIV_DEBUG" /o "NUL" /win32 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\SIMStatusSwitcher.bsc" 
+BSC32_SBRS= \
+	"$(INTDIR)\SIMStatusSwitcher.sbr" \
+	"$(INTDIR)\SSSOptions.sbr" \
+	"$(INTDIR)\SSSPhone.sbr" \
+	"$(INTDIR)\SSSToday.sbr" \
+	"$(INTDIR)\WiVLang.sbr" \
+	"$(INTDIR)\WiVLicense.sbr" \
+	"$(INTDIR)\WiVReg.sbr" \
+	"$(INTDIR)\WiVTrace.sbr" \
+	"$(INTDIR)\WiVUtils.sbr"
+
+"$(OUTDIR)\SIMStatusSwitcher.bsc" : "$(OUTDIR)" $(BSC32_SBRS)
+    $(BSC32) @<<
+  $(BSC32_FLAGS) $(BSC32_SBRS)
+<<
+
+LINK32=link.exe
+LINK32_FLAGS=sms.lib cellcore.lib aygshell.lib commctrl.lib ./Source/ril.lib /nologo /base:"0x00100000" /stack:0x10000,0x1000 /entry:"_DllMainCRTStartup" /dll /incremental:yes /pdb:"$(OUTDIR)\WiVSSS.pdb" /debug /nodefaultlib:"$(CENoDefaultLib)" /def:".\Source\SIMStatusSwitcher.def" /out:"$(OUTDIR)\WiVSSS.dll" /implib:"$(OUTDIR)\WiVSSS.lib" /subsystem:$(CESubsystem) /align:"4096" /MACHINE:ARM 
+DEF_FILE= \
+	".\Source\SIMStatusSwitcher.def"
+LINK32_OBJS= \
+	"$(INTDIR)\SIMStatusSwitcher.obj" \
+	"$(INTDIR)\SSSOptions.obj" \
+	"$(INTDIR)\SSSPhone.obj" \
+	"$(INTDIR)\SSSToday.obj" \
+	"$(INTDIR)\WiVLang.obj" \
+	"$(INTDIR)\WiVLicense.obj" \
+	"$(INTDIR)\WiVReg.obj" \
+	"$(INTDIR)\WiVTrace.obj" \
+	"$(INTDIR)\WiVUtils.obj" \
+	"$(INTDIR)\SIMStatusSwitcher.res"
+
+"$(OUTDIR)\WiVSSS.dll" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+OUTDIR=.\Objects\ARMV4\Release\Output
+INTDIR=.\Objects\ARMV4\Release\Intermediate
+# Begin Custom Macros
+OutDir=.\Objects\ARMV4\Release\Output
+# End Custom Macros
+
+ALL : "$(OUTDIR)\WiVSSS.dll" "$(OUTDIR)\SIMStatusSwitcher.bsc"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\SIMStatusSwitcher.obj"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.res"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.sbr"
+	-@erase "$(INTDIR)\SSSOptions.obj"
+	-@erase "$(INTDIR)\SSSOptions.sbr"
+	-@erase "$(INTDIR)\SSSPhone.obj"
+	-@erase "$(INTDIR)\SSSPhone.sbr"
+	-@erase "$(INTDIR)\SSSToday.obj"
+	-@erase "$(INTDIR)\SSSToday.sbr"
+	-@erase "$(INTDIR)\WiVLang.obj"
+	-@erase "$(INTDIR)\WiVLang.sbr"
+	-@erase "$(INTDIR)\WiVLicense.obj"
+	-@erase "$(INTDIR)\WiVLicense.sbr"
+	-@erase "$(INTDIR)\WiVReg.obj"
+	-@erase "$(INTDIR)\WiVReg.sbr"
+	-@erase "$(INTDIR)\WiVTrace.obj"
+	-@erase "$(INTDIR)\WiVTrace.sbr"
+	-@erase "$(INTDIR)\WiVUtils.obj"
+	-@erase "$(INTDIR)\WiVUtils.sbr"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.bsc"
+	-@erase "$(OUTDIR)\WiVSSS.dll"
+	-@erase "$(OUTDIR)\WiVSSS.exp"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+RSC=rc.exe
+RSC_PROJ=/l 0x809 /fo"$(INTDIR)\SIMStatusSwitcher.res" /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "NDEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" -n /r 
+CPP=clarm.exe
+CPP_PROJ=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\SIMStatusSwitcher.bsc" 
+BSC32_SBRS= \
+	"$(INTDIR)\SIMStatusSwitcher.sbr" \
+	"$(INTDIR)\SSSOptions.sbr" \
+	"$(INTDIR)\SSSPhone.sbr" \
+	"$(INTDIR)\SSSToday.sbr" \
+	"$(INTDIR)\WiVLang.sbr" \
+	"$(INTDIR)\WiVLicense.sbr" \
+	"$(INTDIR)\WiVReg.sbr" \
+	"$(INTDIR)\WiVTrace.sbr" \
+	"$(INTDIR)\WiVUtils.sbr"
+
+"$(OUTDIR)\SIMStatusSwitcher.bsc" : "$(OUTDIR)" $(BSC32_SBRS)
+    $(BSC32) @<<
+  $(BSC32_FLAGS) $(BSC32_SBRS)
+<<
+
+LINK32=link.exe
+LINK32_FLAGS=sms.lib cellcore.lib aygshell.lib commctrl.lib ./Source/ril.lib /nologo /base:"0x00100000" /version:0.7 /stack:0x10000,0x1000 /entry:"_DllMainCRTStartup" /dll /pdb:none /incremental:no /nodefaultlib:"$(CENoDefaultLib)" /def:".\Source\SIMStatusSwitcher.def" /out:"$(OUTDIR)\WiVSSS.dll" /implib:"$(OUTDIR)\WiVSSS.lib" /DELAY:NOBIND /subsystem:$(CESubsystem) /align:"4096" /MACHINE:ARM 
+DEF_FILE= \
+	".\Source\SIMStatusSwitcher.def"
+LINK32_OBJS= \
+	"$(INTDIR)\SIMStatusSwitcher.obj" \
+	"$(INTDIR)\SSSOptions.obj" \
+	"$(INTDIR)\SSSPhone.obj" \
+	"$(INTDIR)\SSSToday.obj" \
+	"$(INTDIR)\WiVLang.obj" \
+	"$(INTDIR)\WiVLicense.obj" \
+	"$(INTDIR)\WiVReg.obj" \
+	"$(INTDIR)\WiVTrace.obj" \
+	"$(INTDIR)\WiVUtils.obj" \
+	"$(INTDIR)\SIMStatusSwitcher.res"
+
+"$(OUTDIR)\WiVSSS.dll" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+OUTDIR=.\Objects\ARMV4\Special\Output
+INTDIR=.\Objects\ARMV4\Special\Intermediate
+# Begin Custom Macros
+OutDir=.\Objects\ARMV4\Special\Output
+# End Custom Macros
+
+ALL : "$(OUTDIR)\WiVSSS.dll" "$(OUTDIR)\SIMStatusSwitcher.bsc"
+
+
+CLEAN :
+	-@erase "$(INTDIR)\SIMStatusSwitcher.obj"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.res"
+	-@erase "$(INTDIR)\SIMStatusSwitcher.sbr"
+	-@erase "$(INTDIR)\SSSOptions.obj"
+	-@erase "$(INTDIR)\SSSOptions.sbr"
+	-@erase "$(INTDIR)\SSSPhone.obj"
+	-@erase "$(INTDIR)\SSSPhone.sbr"
+	-@erase "$(INTDIR)\SSSToday.obj"
+	-@erase "$(INTDIR)\SSSToday.sbr"
+	-@erase "$(INTDIR)\vc60.pdb"
+	-@erase "$(INTDIR)\WiVEncode.obj"
+	-@erase "$(INTDIR)\WiVEncode.sbr"
+	-@erase "$(INTDIR)\WiVLang.obj"
+	-@erase "$(INTDIR)\WiVLang.sbr"
+	-@erase "$(INTDIR)\WiVLicense.obj"
+	-@erase "$(INTDIR)\WiVLicense.sbr"
+	-@erase "$(INTDIR)\WiVReg.obj"
+	-@erase "$(INTDIR)\WiVReg.sbr"
+	-@erase "$(INTDIR)\WiVTrace.obj"
+	-@erase "$(INTDIR)\WiVTrace.sbr"
+	-@erase "$(INTDIR)\WiVUtils.obj"
+	-@erase "$(INTDIR)\WiVUtils.sbr"
+	-@erase "$(OUTDIR)\SIMStatusSwitcher.bsc"
+	-@erase "$(OUTDIR)\WiVSSS.dll"
+	-@erase "$(OUTDIR)\WiVSSS.exp"
+	-@erase "$(OUTDIR)\WiVSSS.ilk"
+	-@erase "$(OUTDIR)\WiVSSS.pdb"
+
+"$(OUTDIR)" :
+    if not exist "$(OUTDIR)/$(NULL)" mkdir "$(OUTDIR)"
+
+"$(INTDIR)" :
+    if not exist "$(INTDIR)/$(NULL)" mkdir "$(INTDIR)"
+
+RSC=rc.exe
+RSC_PROJ=/l 0x809 /fo"$(INTDIR)\SIMStatusSwitcher.res" /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "DEBUG" /d "WIV_DEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" -n /r 
+CPP=clarm.exe
+CPP_PROJ=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+.c{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.obj::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.c{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cpp{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+.cxx{$(INTDIR)}.sbr::
+   $(CPP) @<<
+   $(CPP_PROJ) $< 
+<<
+
+MTL=midl.exe
+MTL_PROJ=/nologo /D "_DEBUG" /D "WIV_DEBUG" /mktyplib203 /o "NUL" /win32 
+BSC32=bscmake.exe
+BSC32_FLAGS=/nologo /o"$(OUTDIR)\SIMStatusSwitcher.bsc" 
+BSC32_SBRS= \
+	"$(INTDIR)\SIMStatusSwitcher.sbr" \
+	"$(INTDIR)\SSSOptions.sbr" \
+	"$(INTDIR)\SSSPhone.sbr" \
+	"$(INTDIR)\SSSToday.sbr" \
+	"$(INTDIR)\WiVEncode.sbr" \
+	"$(INTDIR)\WiVLang.sbr" \
+	"$(INTDIR)\WiVLicense.sbr" \
+	"$(INTDIR)\WiVReg.sbr" \
+	"$(INTDIR)\WiVTrace.sbr" \
+	"$(INTDIR)\WiVUtils.sbr"
+
+"$(OUTDIR)\SIMStatusSwitcher.bsc" : "$(OUTDIR)" $(BSC32_SBRS)
+    $(BSC32) @<<
+  $(BSC32_FLAGS) $(BSC32_SBRS)
+<<
+
+LINK32=link.exe
+LINK32_FLAGS=sms.lib cellcore.lib aygshell.lib commctrl.lib ./Source/ril.lib /nologo /base:"0x00100000" /stack:0x10000,0x1000 /entry:"_DllMainCRTStartup" /dll /incremental:yes /pdb:"$(OUTDIR)\WiVSSS.pdb" /debug /nodefaultlib:"$(CENoDefaultLib)" /def:".\Source\SIMStatusSwitcher.def" /out:"$(OUTDIR)\WiVSSS.dll" /implib:"$(OUTDIR)\WiVSSS.lib" /subsystem:$(CESubsystem) /align:"4096" /MACHINE:ARM 
+DEF_FILE= \
+	".\Source\SIMStatusSwitcher.def"
+LINK32_OBJS= \
+	"$(INTDIR)\SIMStatusSwitcher.obj" \
+	"$(INTDIR)\SSSOptions.obj" \
+	"$(INTDIR)\SSSPhone.obj" \
+	"$(INTDIR)\SSSToday.obj" \
+	"$(INTDIR)\WiVEncode.obj" \
+	"$(INTDIR)\WiVLang.obj" \
+	"$(INTDIR)\WiVLicense.obj" \
+	"$(INTDIR)\WiVReg.obj" \
+	"$(INTDIR)\WiVTrace.obj" \
+	"$(INTDIR)\WiVUtils.obj" \
+	"$(INTDIR)\SIMStatusSwitcher.res"
+
+"$(OUTDIR)\WiVSSS.dll" : "$(OUTDIR)" $(DEF_FILE) $(LINK32_OBJS)
+    $(LINK32) @<<
+  $(LINK32_FLAGS) $(LINK32_OBJS)
+<<
+
+!ENDIF 
+
+
+!IF "$(NO_EXTERNAL_DEPS)" != "1"
+!IF EXISTS("SIMStatusSwitcher.dep")
+!INCLUDE "SIMStatusSwitcher.dep"
+!ELSE 
+!MESSAGE Warning: cannot find "SIMStatusSwitcher.dep"
+!ENDIF 
+!ENDIF 
+
+
+!IF "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release" || "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug" || "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug" || "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release" || "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+SOURCE=.\Source\Comments.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+
+"$(INTDIR)\Comments.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+
+"$(INTDIR)\Comments.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+!ENDIF 
+
+SOURCE=.\Source\SIMStatusSwitcher.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SIMStatusSwitcher.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SIMStatusSwitcher.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SIMStatusSwitcher.obj"	"$(INTDIR)\SIMStatusSwitcher.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\SIMStatusSwitcher.obj"	"$(INTDIR)\SIMStatusSwitcher.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SIMStatusSwitcher.obj"	"$(INTDIR)\SIMStatusSwitcher.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\SIMStatusSwitcher.rc
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+
+"$(INTDIR)\SIMStatusSwitcher.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) /l 0x809 /fo"$(INTDIR)\SIMStatusSwitcher.res" /i "Source" /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "DEBUG" /d "WIV_DEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" -n /r $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+
+"$(INTDIR)\SIMStatusSwitcher.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) /l 0x809 /fo"$(INTDIR)\SIMStatusSwitcher.res" /i "Source" /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "NDEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" -n /r $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+
+"$(INTDIR)\SIMStatusSwitcher.res" : $(SOURCE) "$(INTDIR)"
+	$(RSC) /l 0x809 /fo"$(INTDIR)\SIMStatusSwitcher.res" /i "Source" /d UNDER_CE=$(CEVersion) /d _WIN32_WCE=$(CEVersion) /d "DEBUG" /d "WIV_DEBUG" /d "UNICODE" /d "_UNICODE" /d "$(CePlatform)" /d "ARM" /d "_ARM_" /d "ARMV4" -n /r $(SOURCE)
+
+
+!ENDIF 
+
+SOURCE=.\Source\SSSOptions.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SSSOptions.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SSSOptions.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SSSOptions.obj"	"$(INTDIR)\SSSOptions.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\SSSOptions.obj"	"$(INTDIR)\SSSOptions.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SSSOptions.obj"	"$(INTDIR)\SSSOptions.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\SSSPhone.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SSSPhone.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SSSPhone.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SSSPhone.obj"	"$(INTDIR)\SSSPhone.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\SSSPhone.obj"	"$(INTDIR)\SSSPhone.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SSSPhone.obj"	"$(INTDIR)\SSSPhone.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\SSSToday.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SSSToday.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\SSSToday.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SSSToday.obj"	"$(INTDIR)\SSSToday.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\SSSToday.obj"	"$(INTDIR)\SSSToday.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\SSSToday.obj"	"$(INTDIR)\SSSToday.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\WiVEncode.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVEncode.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVEncode.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVEncode.obj"	"$(INTDIR)\WiVEncode.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\WiVLang.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVLang.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVLang.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVLang.obj"	"$(INTDIR)\WiVLang.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\WiVLang.obj"	"$(INTDIR)\WiVLang.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVLang.obj"	"$(INTDIR)\WiVLang.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\WiVLicense.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+
+"$(INTDIR)\WiVLicense.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+
+"$(INTDIR)\WiVLicense.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+
+"$(INTDIR)\WiVLicense.obj"	"$(INTDIR)\WiVLicense.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+
+"$(INTDIR)\WiVLicense.obj"	"$(INTDIR)\WiVLicense.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+
+"$(INTDIR)\WiVLicense.obj"	"$(INTDIR)\WiVLicense.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) $(CPP_PROJ) $(SOURCE)
+
+
+!ENDIF 
+
+SOURCE=.\Source\WiVReg.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVReg.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVReg.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVReg.obj"	"$(INTDIR)\WiVReg.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\WiVReg.obj"	"$(INTDIR)\WiVReg.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVReg.obj"	"$(INTDIR)\WiVReg.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\WiVTrace.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVTrace.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVTrace.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVTrace.obj"	"$(INTDIR)\WiVTrace.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\WiVTrace.obj"	"$(INTDIR)\WiVTrace.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVTrace.obj"	"$(INTDIR)\WiVTrace.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+SOURCE=.\Source\WiVUtils.cpp
+
+!IF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Release"
+
+CPP_SWITCHES=/nologo /W3 /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "NDEBUG" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVUtils.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE x86) Debug"
+
+CPP_SWITCHES=/nologo /W3 /Zi /Od /D "DEBUG" /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "_i386_" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "_X86_" /D "x86" /D "_USRDLL" /D "SSS_EXPORTS" /Fp"$(INTDIR)\SIMStatusSwitcher.pch" /YX /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /Gs8192 /GF /c 
+
+"$(INTDIR)\WiVUtils.obj" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Debug"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /Fr"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVUtils.obj"	"$(INTDIR)\WiVUtils.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Release"
+
+CPP_SWITCHES=/nologo /GX /Oxs /D _WIN32_WCE=$(CEVersion) /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D "NDEBUG" /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /M$(CECrtMT) /c 
+
+"$(INTDIR)\WiVUtils.obj"	"$(INTDIR)\WiVUtils.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ELSEIF  "$(CFG)" == "SIMStatusSwitcher - Win32 (WCE ARMV4) Special"
+
+CPP_SWITCHES=/nologo /W3 /GX /Zi /Od /Gy /D "DEBUG" /D "WIV_DEBUG" /D "WIV_ENCRYPT_BLD" /D "$(CePlatform)" /D "ARM" /D "_ARM_" /D "ARMV4" /D UNDER_CE=$(CEVersion) /D "UNICODE" /D "_UNICODE" /D _WIN32_WCE=$(CEVersion) /FR"$(INTDIR)\\" /Fo"$(INTDIR)\\" /Fd"$(INTDIR)\\" /D /M$(CECrtMTDebug) /c 
+
+"$(INTDIR)\WiVUtils.obj"	"$(INTDIR)\WiVUtils.sbr" : $(SOURCE) "$(INTDIR)"
+	$(CPP) @<<
+  $(CPP_SWITCHES) $(SOURCE)
+<<
+
+
+!ENDIF 
+
+
+!ENDIF 
+

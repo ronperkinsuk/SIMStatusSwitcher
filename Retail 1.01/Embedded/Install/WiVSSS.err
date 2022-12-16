@@ -1,0 +1,5 @@
+Warning: Section [DefaultInstall] key "AddReg" - there are no section entries to process
+Warning: Section [DestinationDirs] key "CopyFiles2" is not using the string "%InstallDir%"
+Warning: Section [DestinationDirs] key "CEShortcuts1" is not using the string "%InstallDir%"
+Warning: Section [DestinationDirs] key "CEShortcuts2" is not using the string "%InstallDir%"
+Warning: Section [DefaultInstall] key "AddReg" - there are no section entries to process

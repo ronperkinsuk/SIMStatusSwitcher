@@ -1,0 +1,9 @@
+Installation files will be extracted and the setup program run automatically.
+Do you want to continue with the installation?
+
+WiViT SIM Status Switcher V1.01 Installation
+
+Setup will copy the installation files and invoke the ActiveSync Add/Remove Programs options automatically.
+
+Our aim at WiViT is to provide the very best innovative quality mobile Pocket PC products.
+The SIM Status Switcher is our first product which gives you the facility to control the state of your SIM easily from the Today screen.

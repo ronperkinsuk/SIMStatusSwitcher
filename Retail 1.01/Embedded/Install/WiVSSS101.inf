@@ -1,0 +1,65 @@
+
+[Version]
+Signature="$Chicago$"
+CESignature="$Windows CE$"
+Provider="WiViT"
+
+[CEStrings]
+AppName="SIM Status Switcher"
+InstallDir="%CE1%\SIM Status Switcher"
+
+[CEDevice]
+ProcessorType=2577
+UnsupportedPlatforms="HPC","HPC PRO"
+VersionMin=3.0
+VersionMax=1000.0
+BuildMin=0
+BuildMax=0xE0000000
+
+[SourceDisksNames]
+1=,Source1,,"[INSTALLDIR]"
+2=,Source2,,"[WINDOWS]"
+3=,Source3,,
+
+[SourceDisksFiles]
+"WiVSSS.lang"=1
+"WiVSSS_ENG.lnk"=1
+"WiVSSS_DEU.lnk"=1
+"WiVSSS_FRA.lnk"=1
+"WiVSSS.dll"=1
+"WiVSSSLaunch.exe"=1
+"WiVSSSHelp_ENG.htm"=2
+"WiVSSSHelp_FRA.htm"=2
+"WiVSSSHelp_DEU.htm"=2
+"WiVSSSSetup.DLL"=3
+
+[CopyFiles1]
+"WiVSSS.lang",,,0x00000000
+"WiVSSS_ENG.lnk",,,0x00000000
+"WiVSSS_DEU.lnk",,,0x00000000
+"WiVSSS_FRA.lnk",,,0x00000000
+"WiVSSS.dll",,,0x00000000
+"WiVSSSLaunch.exe",,,0x00000000
+
+[CopyFiles2]
+"WiVSSSHelp_ENG.htm",,,0x00000000
+"WiVSSSHelp_FRA.htm",,,0x00000000
+"WiVSSSHelp_DEU.htm",,,0x00000000
+
+[CEShortcuts1]
+"SIM Status Switcher.lnk",0,"WiVSSSHelp_ENG.htm"
+
+[CEShortcuts2]
+"SIM Status Switcher.lnk",0,"WiVSSSLaunch.exe"
+
+[DestinationDirs]
+CopyFiles1=0,"%InstallDir%"
+CopyFiles2=0,"%CE2%"
+CEShortcuts1=0,"%CE2%\Help"
+CEShortcuts2=0,"%CE11%"
+
+[DefaultInstall]
+CopyFiles=CopyFiles1,CopyFiles2
+CEShortcuts=CEShortcuts1,CEShortcuts2
+CESetupDLL=WiVSSSSetup.DLL
+
